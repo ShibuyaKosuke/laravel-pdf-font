@@ -1,0 +1,29 @@
+{
+    "name": "shibuyakosuke/laravel-dompdf-font",
+    "description": "install command for dompdf-font.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "KosukeShibuya",
+            "email": "shibuya@imagenious.co.jp"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "ShibuyaKosuke\\LaravelDompdfFont\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ShibuyaKosuke\\LaravelDompdfFont\\Providers\\ServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "barryvdh/laravel-dompdf": "^0.8.6",
+        "guzzlehttp/guzzle": "^7.0",
+        "ext-zip": "*"
+    }
+}
