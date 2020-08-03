@@ -30,11 +30,13 @@ class DompdfFont extends Command
      */
     public function handle()
     {
-        $url = config('pdf_font.fonts.ipaex');
+        $urls = config('pdf_font.fonts');
         $destination = config('pdf_font.destination.dompdf');
-        $path = Downloader::exec($url, $destination);
-        if ($path !== false) {
-            Downloader::extract($path, $destination);
+        foreach ($urls as $url) {
+            $path = Downloader::exec($url, $destination);
+            if ($path !== false) {
+                Downloader::extract($path, $destination);
+            }
         }
     }
 }
