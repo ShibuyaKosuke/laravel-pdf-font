@@ -32,8 +32,9 @@ class Downloader
         !File::exists($destination) && File::makeDirectory($destination);
 
         if ($mimeType == 'application/zip') {
-            File::put($destination . '/fonts.zip', $response->getBody());
-            return $destination . '/fonts.zip';
+            $zip = $destination . DIRECTORY_SEPARATOR . basename($url);
+            File::put($zip, $response->getBody());
+            return $zip;
         }
     }
 
@@ -47,8 +48,16 @@ class Downloader
         $zip = new \ZipArchive();
         $zip->open($path) && $zip->extractTo($destination) && $zip->close();
 
+        $pathinfo = pathinfo($path);
+        $directory = $pathinfo['dirname'] . DIRECTORY_SEPARATOR . $pathinfo['filename'];
+        $files = File::glob($directory . '/*.ttf');
+        foreach ($files as $file) {
+            File::move($file, $pathinfo['dirname'] . DIRECTORY_SEPARATOR . basename($file));
+        }
+
         if ($clear_zip) {
-            unlink($path);
+            File::deleteDirectory($directory);
+            File::delete($path);
         }
     }
 }

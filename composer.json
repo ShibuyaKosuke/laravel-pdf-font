@@ -23,7 +23,7 @@
     },
     "require": {
         "barryvdh/laravel-dompdf": "^0.8.6",
-        "guzzlehttp/guzzle": "^7.0",
+        "guzzlehttp/guzzle": "^6.5|^7.0",
         "ext-zip": "*"
     }
 }
