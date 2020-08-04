@@ -1,9 +1,9 @@
-# laravel-dompdf-font
+# laravel-pdf-font
 
 ## install
 
 ```
-composer require shibuyakosuke/laravel-dompdf-font
+composer require shibuyakosuke/laravel-pdf-font
 ```
 
 ## usage

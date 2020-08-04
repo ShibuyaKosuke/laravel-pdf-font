@@ -1,6 +1,6 @@
 {
-    "name": "shibuyakosuke/laravel-dompdf-font",
-    "description": "install command for dompdf-font.",
+    "name": "shibuyakosuke/laravel-pdf-font",
+    "description": "install command for pdf-font.",
     "type": "library",
     "license": "MIT",
     "authors": [
